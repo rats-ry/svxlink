@@ -321,7 +321,7 @@ proc talker_stop {tg callsign} {
   #puts "### Talker stop on TG #$tg: $callsign"
   if {($tg == $selected_tg) && ($callsign != $::Logic::CFG_CALLSIGN)} {
 
-    CW::setAmplitude -21
+    CW::setAmplitude -24
     playSilence 200
 
     set fields [split $callsign "-"]
