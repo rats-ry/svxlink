@@ -316,15 +316,24 @@ proc talker_start {tg callsign} {
 #   callsign  -- The callsign of the talker node
 #
 proc talker_stop {tg callsign} {
-  #variable selected_tg
-  #variable ::Logic::CFG_CALLSIGN
+  variable selected_tg
+  variable ::Logic::CFG_CALLSIGN
   #puts "### Talker stop on TG #$tg: $callsign"
-  #if {($tg == $selected_tg) && ($callsign != $::Logic::CFG_CALLSIGN)} {
-  #  playSilence 100
-  #  playTone 440 200 50
-  #  playTone 659 200 50
-  #  playTone 880 200 50
-  #}
+  if {($tg == $selected_tg) && ($callsign != $::Logic::CFG_CALLSIGN)} {
+
+    CW::setAmplitude -21
+    playSilence 200
+
+    set fields [split $callsign "-"]
+    if {[string length [lindex $fields 1]] > 1} {
+        CW::play [lindex $fields 1]
+        #spellWord [lindex $fields 1]
+    } else {
+        CW::play [lindex $fields 0]
+        #spellWord [lindex $fields 0]
+    }
+    playSilence 200
+  }
 }
 
 

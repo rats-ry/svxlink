@@ -110,3 +110,6 @@ install(PROGRAMS ${RUNTIME_OUTPUT_DIRECTORY}/svxlink_gpio_up
 install(PROGRAMS ${RUNTIME_OUTPUT_DIRECTORY}/svxlink_gpio_down
   DESTINATION ${SBIN_INSTALL_DIR}
   )
+
+# Add customized Tcl-scripts
+add_subdirectory (local)
