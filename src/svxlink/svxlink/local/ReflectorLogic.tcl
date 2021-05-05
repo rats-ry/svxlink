@@ -322,17 +322,17 @@ proc talker_stop {tg callsign} {
   if {($tg == $selected_tg) && ($callsign != $::Logic::CFG_CALLSIGN)} {
 
     CW::setAmplitude -24
-    playSilence 200
+    playSilence 500
 
     set fields [split $callsign "-"]
     if {[string length [lindex $fields 1]] > 1} {
         CW::play [lindex $fields 1]
         #spellWord [lindex $fields 1]
     } else {
-        CW::play [lindex $fields 0]
-        #spellWord [lindex $fields 0]
+        CW::play "EX"
+        #spellWord "EX"
     }
-    playSilence 200
+    playSilence 500
   }
 }
 
